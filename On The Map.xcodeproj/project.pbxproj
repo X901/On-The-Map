@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD68FAF5218B9CE6005C1BC4 /* UserUdacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68FAF4218B9CE6005C1BC4 /* UserUdacity.swift */; };
+		FD87DDC9218A329A004A304C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDC8218A329A004A304C /* AppDelegate.swift */; };
+		FD87DDCB218A329A004A304C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDCA218A329A004A304C /* LoginViewController.swift */; };
+		FD87DDCE218A329A004A304C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD87DDCC218A329A004A304C /* Main.storyboard */; };
+		FD87DDD0218A329D004A304C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD87DDCF218A329C004A304C /* Assets.xcassets */; };
+		FD87DDD3218A329D004A304C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD87DDD1218A329D004A304C /* LaunchScreen.storyboard */; };
+		FD87DDDD218A3C17004A304C /* OTMParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDDA218A3C17004A304C /* OTMParseConvenience.swift */; };
+		FD87DDDE218A3C17004A304C /* OTMParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDDB218A3C17004A304C /* OTMParseConstants.swift */; };
+		FD87DDDF218A3C17004A304C /* OTMParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDDC218A3C17004A304C /* OTMParseClient.swift */; };
+		FD8B5F4B218C41C500390510 /* OTMUdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F4A218C41C400390510 /* OTMUdacityClient.swift */; };
+		FD8B5F4D218C41DC00390510 /* OTMUdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F4C218C41DC00390510 /* OTMUdacityConstants.swift */; };
+		FD8B5F4F218C41FE00390510 /* OTMUdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F4E218C41FE00390510 /* OTMUdacityConvenience.swift */; };
+		FD8B5F52218C82A200390510 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F51218C82A200390510 /* Alert.swift */; };
+		FD8B5F54218C879600390510 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F53218C879600390510 /* MapViewController.swift */; };
+		FD8B5F75218CF2DF00390510 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8B5F74218CF2DF00390510 /* StudentLocations.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FD68FAF4218B9CE6005C1BC4 /* UserUdacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUdacity.swift; sourceTree = "<group>"; };
+		FD87DDC5218A329A004A304C /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD87DDC8218A329A004A304C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD87DDCA218A329A004A304C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FD87DDCD218A329A004A304C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD87DDCF218A329C004A304C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD87DDD2218A329D004A304C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD87DDD4218A329D004A304C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD87DDDA218A3C17004A304C /* OTMParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMParseConvenience.swift; sourceTree = "<group>"; };
+		FD87DDDB218A3C17004A304C /* OTMParseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMParseConstants.swift; sourceTree = "<group>"; };
+		FD87DDDC218A3C17004A304C /* OTMParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMParseClient.swift; sourceTree = "<group>"; };
+		FD8B5F4A218C41C400390510 /* OTMUdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMUdacityClient.swift; sourceTree = "<group>"; };
+		FD8B5F4C218C41DC00390510 /* OTMUdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMUdacityConstants.swift; sourceTree = "<group>"; };
+		FD8B5F4E218C41FE00390510 /* OTMUdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMUdacityConvenience.swift; sourceTree = "<group>"; };
+		FD8B5F51218C82A200390510 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		FD8B5F53218C879600390510 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FD8B5F74218CF2DF00390510 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD87DDC2218A329A004A304C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD68FAF0218B9B72005C1BC4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD68FAF1218B9B82005C1BC4 /* JSON Model */,
+				FD8B5F47218C415F00390510 /* Parse */,
+				FD8B5F48218C417000390510 /* Udacity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD68FAF1218B9B82005C1BC4 /* JSON Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD68FAF4218B9CE6005C1BC4 /* UserUdacity.swift */,
+				FD8B5F74218CF2DF00390510 /* StudentLocations.swift */,
+			);
+			path = "JSON Model";
+			sourceTree = "<group>";
+		};
+		FD68FAF2218B9B8F005C1BC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD87DDCC218A329A004A304C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD87DDBC218A329A004A304C = {
+			isa = PBXGroup;
+			children = (
+				FD87DDC7218A329A004A304C /* On The Map */,
+				FD87DDC6218A329A004A304C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD87DDC6218A329A004A304C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD87DDC5218A329A004A304C /* On The Map.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD87DDC7218A329A004A304C /* On The Map */ = {
+			isa = PBXGroup;
+			children = (
+				FD87DDC8218A329A004A304C /* AppDelegate.swift */,
+				FD87DDCF218A329C004A304C /* Assets.xcassets */,
+				FD8B5F55218C9B5200390510 /* Controller */,
+				FD68FAF0218B9B72005C1BC4 /* Model */,
+				FD68FAF2218B9B8F005C1BC4 /* View */,
+				FD8B5F50218C828700390510 /* Extra */,
+				FD87DDD1218A329D004A304C /* LaunchScreen.storyboard */,
+				FD87DDD4218A329D004A304C /* Info.plist */,
+			);
+			path = "On The Map";
+			sourceTree = "<group>";
+		};
+		FD8B5F47218C415F00390510 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				FD87DDDC218A3C17004A304C /* OTMParseClient.swift */,
+				FD87DDDB218A3C17004A304C /* OTMParseConstants.swift */,
+				FD87DDDA218A3C17004A304C /* OTMParseConvenience.swift */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		FD8B5F48218C417000390510 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				FD8B5F4A218C41C400390510 /* OTMUdacityClient.swift */,
+				FD8B5F4C218C41DC00390510 /* OTMUdacityConstants.swift */,
+				FD8B5F4E218C41FE00390510 /* OTMUdacityConvenience.swift */,
+			);
+			path = Udacity;
+			sourceTree = "<group>";
+		};
+		FD8B5F50218C828700390510 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				FD8B5F51218C82A200390510 /* Alert.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		FD8B5F55218C9B5200390510 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD87DDCA218A329A004A304C /* LoginViewController.swift */,
+				FD8B5F53218C879600390510 /* MapViewController.swift */,
+			);
+			name = Controller;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD87DDC4218A329A004A304C /* On The Map */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD87DDD7218A329D004A304C /* Build configuration list for PBXNativeTarget "On The Map" */;
+			buildPhases = (
+				FD87DDC1218A329A004A304C /* Sources */,
+				FD87DDC2218A329A004A304C /* Frameworks */,
+				FD87DDC3218A329A004A304C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "On The Map";
+			productName = "On The Map";
+			productReference = FD87DDC5218A329A004A304C /* On The Map.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD87DDBD218A329A004A304C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = X901;
+				TargetAttributes = {
+					FD87DDC4218A329A004A304C = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = FD87DDC0218A329A004A304C /* Build configuration list for PBXProject "On The Map" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD87DDBC218A329A004A304C;
+			productRefGroup = FD87DDC6218A329A004A304C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD87DDC4218A329A004A304C /* On The Map */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD87DDC3218A329A004A304C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD87DDD3218A329D004A304C /* LaunchScreen.storyboard in Resources */,
+				FD87DDD0218A329D004A304C /* Assets.xcassets in Resources */,
+				FD87DDCE218A329A004A304C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD87DDC1218A329A004A304C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8B5F54218C879600390510 /* MapViewController.swift in Sources */,
+				FD87DDDF218A3C17004A304C /* OTMParseClient.swift in Sources */,
+				FD8B5F4F218C41FE00390510 /* OTMUdacityConvenience.swift in Sources */,
+				FD87DDCB218A329A004A304C /* LoginViewController.swift in Sources */,
+				FD8B5F4B218C41C500390510 /* OTMUdacityClient.swift in Sources */,
+				FD68FAF5218B9CE6005C1BC4 /* UserUdacity.swift in Sources */,
+				FD8B5F4D218C41DC00390510 /* OTMUdacityConstants.swift in Sources */,
+				FD87DDDD218A3C17004A304C /* OTMParseConvenience.swift in Sources */,
+				FD8B5F75218CF2DF00390510 /* StudentLocations.swift in Sources */,
+				FD87DDDE218A3C17004A304C /* OTMParseConstants.swift in Sources */,
+				FD8B5F52218C82A200390510 /* Alert.swift in Sources */,
+				FD87DDC9218A329A004A304C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FD87DDCC218A329A004A304C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD87DDCD218A329A004A304C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD87DDD1218A329D004A304C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD87DDD2218A329D004A304C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD87DDD5218A329D004A304C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD87DDD6218A329D004A304C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD87DDD8218A329D004A304C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CP92CMD5E4;
+				INFOPLIST_FILE = "On The Map/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.basil.On-The-Map";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD87DDD9218A329D004A304C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CP92CMD5E4;
+				INFOPLIST_FILE = "On The Map/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.basil.On-The-Map";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD87DDC0218A329A004A304C /* Build configuration list for PBXProject "On The Map" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD87DDD5218A329D004A304C /* Debug */,
+				FD87DDD6218A329D004A304C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD87DDD7218A329D004A304C /* Build configuration list for PBXNativeTarget "On The Map" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD87DDD8218A329D004A304C /* Debug */,
+				FD87DDD9218A329D004A304C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD87DDBD218A329A004A304C /* Project object */;
+}
