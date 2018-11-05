@@ -115,7 +115,22 @@ class MapViewController: UIViewController {
                 
                 // if the usersData is not equal nil : that mean the user did already post Location to parse ( get objectId and Ask if he want to update !)
                 // but if the usersData is equal nil : that mean the user never post his Location ! (let him post !)
-                
+                if usersData != nil {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toAddLocation", sender: nil)
+
+                    }
+                }else {
+                    //ask user if his want to overwriting!
+//                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMParseClient.sharedInstance().userFullName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?")
+                    
+                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().fristAndLastName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
+                        
+                        self.performSegue(withIdentifier: "toAddLocation", sender: nil)
+
+                    })
+
+                }
                 
                 
             }else {

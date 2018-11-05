@@ -15,8 +15,7 @@ class OTMUdacityClient : NSObject {
     // authentication state
     var sessionID : String? = nil
     var userID : String? = nil
-    var fristName : String? = nil
-    var lastName : String? = nil
+    var fristAndLastName : String? = nil
     
     
     // MARK: Initializers

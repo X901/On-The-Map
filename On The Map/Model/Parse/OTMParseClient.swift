@@ -13,7 +13,6 @@ class OTMParseClient : NSObject {
     var objectId : String? = nil
 
 
-
     
     // MARK: Initializers
     
@@ -80,7 +79,7 @@ class OTMParseClient : NSObject {
     
     // MARK: POST
     
-    func taskForPOSTMethod<E: Encodable,D:Decodable>(_ method: String, parameters: [String:AnyObject],decode:D.Type?, jsonBody: E, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForPOSTMethod<E: Encodable,D:Decodable>(_ method: String,decode:D.Type?, jsonBody: E, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         
         func sendError(_ error: String) {
@@ -89,15 +88,13 @@ class OTMParseClient : NSObject {
             completionHandlerForPOST(nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
         }
         
-        let parametersWithApiKey = parameters
 
         /* 2/3. Build the URL, Configure the request */
-        let request = NSMutableURLRequest(url:tmdbURLFromParameters(parametersWithApiKey, withPathExtension: method))
+        let request = NSMutableURLRequest(url:tmdbURLFromWithoutParameters(withPathExtension: method))
         
 
         
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
@@ -118,7 +115,7 @@ class OTMParseClient : NSObject {
         
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            
+
           
             
             /* GUARD: Was there an error? */
@@ -213,7 +210,18 @@ class OTMParseClient : NSObject {
         return url!
     }
 
-  
+    // create a URL from without parameters
+    private func tmdbURLFromWithoutParameters(withPathExtension: String? = nil) -> URL {
+        
+        var components = URLComponents()
+        components.scheme = OTMParseClient.Constants.ApiScheme
+        components.host = OTMParseClient.Constants.ApiHost
+        components.path = OTMParseClient.Constants.ApiPath + (withPathExtension ?? "")
+        
+        
+        
+        return components.url!
+    }
 
     
     // MARK: Shared Instance

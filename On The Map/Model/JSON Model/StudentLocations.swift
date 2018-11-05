@@ -27,11 +27,11 @@ struct Results : Decodable {
 }
 
 
-struct StudentLocationsBody : Decodable {
+struct StudentLocationsBody : Encodable {
     let results : [ResultsBody]?
 }
 
-struct ResultsBody : Decodable {
+struct ResultsBody : Encodable {
     let uniqueKey:String?
     let firstName:String?
     let lastName:String?
@@ -39,6 +39,13 @@ struct ResultsBody : Decodable {
     let mediaURL:String?
     let latitude:Double?
     let longitude:Double?
+}
+
+//Post StudentLocations Response
+struct StudentLocationsResponse : Decodable {
+    let createdAt : String?
+    let objectId : String?
+
 }
 
 

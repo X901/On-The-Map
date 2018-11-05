@@ -52,7 +52,10 @@ class UsersDataTableViewController: UIViewController {
             }
         }
     
-
+    @IBAction func addLocationTapped(_ sender: Any) {
+        
+    }
+    
 
     @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
         getAllUsersData()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD41100821908B2A007E99F3 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD41100721908B2A007E99F3 /* AddLocationViewController.swift */; };
+		FD41100A2190B565007E99F3 /* FinalAddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4110092190B565007E99F3 /* FinalAddLocationViewController.swift */; };
 		FD516E8A218F5178002350D0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E89218F5178002350D0 /* ActivityIndicator.swift */; };
 		FD516E8C218F5EFE002350D0 /* UsersDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */; };
 		FD516E8E218F60D5002350D0 /* UsersDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E8D218F60D5002350D0 /* UsersDataTableViewCell.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD41100721908B2A007E99F3 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		FD4110092190B565007E99F3 /* FinalAddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAddLocationViewController.swift; sourceTree = "<group>"; };
 		FD516E89218F5178002350D0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataTableViewController.swift; sourceTree = "<group>"; };
 		FD516E8D218F60D5002350D0 /* UsersDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				FD87DDCA218A329A004A304C /* LoginViewController.swift */,
 				FD8B5F53218C879600390510 /* MapViewController.swift */,
 				FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */,
+				FD41100721908B2A007E99F3 /* AddLocationViewController.swift */,
+				FD4110092190B565007E99F3 /* FinalAddLocationViewController.swift */,
 			);
 			name = Controller;
 			path = "New Group";
@@ -235,6 +241,7 @@
 				FD516E8E218F60D5002350D0 /* UsersDataTableViewCell.swift in Sources */,
 				FD87DDDF218A3C17004A304C /* OTMParseClient.swift in Sources */,
 				FD516E8C218F5EFE002350D0 /* UsersDataTableViewController.swift in Sources */,
+				FD41100A2190B565007E99F3 /* FinalAddLocationViewController.swift in Sources */,
 				FD8B5F4F218C41FE00390510 /* OTMUdacityConvenience.swift in Sources */,
 				FD87DDCB218A329A004A304C /* LoginViewController.swift in Sources */,
 				FD516E8A218F5178002350D0 /* ActivityIndicator.swift in Sources */,
@@ -242,6 +249,7 @@
 				FD68FAF5218B9CE6005C1BC4 /* UserUdacity.swift in Sources */,
 				FD8B5F4D218C41DC00390510 /* OTMUdacityConstants.swift in Sources */,
 				FD87DDDD218A3C17004A304C /* OTMParseConvenience.swift in Sources */,
+				FD41100821908B2A007E99F3 /* AddLocationViewController.swift in Sources */,
 				FD8B5F75218CF2DF00390510 /* StudentLocations.swift in Sources */,
 				FD87DDDE218A3C17004A304C /* OTMParseConstants.swift in Sources */,
 				FD8B5F52218C82A200390510 /* Alert.swift in Sources */,

@@ -59,18 +59,51 @@ extension OTMParseClient {
                 completionHandlerForUserID(false ,nil ,"\(error.localizedDescription)")
             }else {
                 let newResult = result as! StudentLocations
+                
+                if !(newResult.results?.isEmpty)!{
                 if let usersData = newResult.results  {
                     
                     // if there is data (user already posted his Location)
                     // get objectId
-                    if let objectId = usersData[0].objectId {
+                    if let objectId = usersData[0].objectId    {
                         OTMParseClient.sharedInstance().objectId = objectId
+                        
+                        
                     }
                     
                     completionHandlerForUserID(true ,usersData,nil)
-                    
                 }else {
                     completionHandlerForUserID(false ,nil ,"\( error!.localizedDescription)")
+                    
+                    }
+                    
+                }else {
+                    completionHandlerForUserID(true ,newResult.results ,nil)
+
+                }
+                
+                
+            }
+        }
+        
+    }
+    
+     func postUserLocation<E: Encodable>( jsonBody:E ,completionHandlerForSession: @escaping (_ success: Bool , _ errorString: String?) -> Void) {
+        
+        /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
+        
+        
+        /* 2. Make the request */
+        _ = taskForPOSTMethod(Methods.StudentLocation, decode: StudentLocationsResponse.self, jsonBody: jsonBody) { (result, error) in
+            
+            if let error = error {
+                completionHandlerForSession(false ,"\(error.localizedDescription) ")
+            }else {
+                if result != nil{
+                    completionHandlerForSession(true ,nil)
+                    
+                }else {
+                    completionHandlerForSession(false ," \(error!.localizedDescription)")
                     
                 }
                 
@@ -80,7 +113,31 @@ extension OTMParseClient {
         
     }
     
-    
+    func putUserLocation<E: Encodable>( jsonBody:E ,completionHandlerForSession: @escaping (_ success: Bool , _ errorString: String?) -> Void) {
+        
+        /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
+        
+        
+        /* 2. Make the request */
+        
+        _ = taskForPOSTMethod(Methods.StudentLocation, decode: StudentLocationsResponse.self, jsonBody: jsonBody) { (result, error) in
+            
+            if let error = error {
+                completionHandlerForSession(false ,"\(error.localizedDescription) ")
+            }else {
+                if result != nil {
+                    completionHandlerForSession(true  ,nil)
+                    
+                }else {
+                    completionHandlerForSession(false ," \(error!.localizedDescription)")
+                    
+                }
+                
+                
+            }
+        }
+        
+    }
     
     
     

@@ -26,8 +26,9 @@ extension OTMUdacityClient {
                     
                     if success {
                         
-                        self.fristName = fristName
-                        self.lastName = lastName
+                        if let fristName = fristName , let lastName = lastName {
+                        self.fristAndLastName = "\(fristName) \(lastName)"
+                        }
                         
 
                     }
