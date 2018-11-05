@@ -16,10 +16,14 @@ class MapViewController: UIViewController {
 
    private var annotations = [MKPointAnnotation]()
 
+    private var activityIndicator : UIActivityIndicatorView  = UIActivityIndicatorView()
+    
     override func viewWillAppear(_ animated: Bool) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        ActivityIndicator.startActivityIndicator(view: self.view)
+
         getAllUsersData()
 
     }
@@ -67,27 +71,60 @@ class MapViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.mapView.addAnnotations(self.annotations)
-            }
-
-            
+                ActivityIndicator.stopActivityIndicator()
 
 
             }
-        
 
-        
 
-        
-        
-        
-        
+            }
+ 
     }
     
+  
     
     @IBAction func refreshNewData(_ sender: Any) {
-    
+        ActivityIndicator.startActivityIndicator(view: self.view)
+
   getAllUsersData()
     }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        
+        OTMUdacityClient.sharedInstance().deleteSession { (success, sessionID, errorString) in
+            
+            DispatchQueue.main.async {
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }else {
+                    Alert.showBasicAlert(on: self, with: errorString!)
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    @IBAction func AddUserLocationTapped(_ sender: Any) {
+        
+        OTMParseClient.sharedInstance().getuserDataByUniqueKey { (success, usersData, errorString) in
+            
+            if success {
+                
+                // if the usersData is not equal nil : that mean the user did already post Location to parse ( get objectId and Ask if he want to update !)
+                // but if the usersData is equal nil : that mean the user never post his Location ! (let him post !)
+                
+                
+                
+            }else {
+                Alert.showBasicAlert(on: self, with: errorString!)
+            }
+        }
+        
+    }
+    
     
 }
 
@@ -116,8 +153,11 @@ extension MapViewController:MKMapViewDelegate{
             pinView!.annotation = annotation
         }
         
+        
         return pinView
     }
+    
+   
     
     func openUrlInSafari(url:URL){
         let svc = SFSafariViewController(url: url)

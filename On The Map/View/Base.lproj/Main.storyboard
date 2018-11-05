@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="174" width="288" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5gE-Sl-qSW"/>
-                                            <constraint firstAttribute="width" constant="288" id="ZCr-k3-2dQ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="ZCr-k3-2dQ"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="212" width="288" height="40"/>
                                         <color key="backgroundColor" red="0.082053177058696747" green="0.63866978883743286" blue="0.86627107858657837" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="288" id="H3O-WT-zeE"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="H3O-WT-zeE"/>
                                             <constraint firstAttribute="height" constant="40" id="oUz-q6-tVl"/>
                                         </constraints>
                                         <state key="normal" title="LOG IN">
@@ -132,11 +132,15 @@
                         <viewLayoutGuide key="safeArea" id="N9o-sd-FJi"/>
                     </view>
                     <navigationItem key="navigationItem" id="BMN-14-IQ3">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="T5n-2T-cyf"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="T5n-2T-cyf">
+                            <connections>
+                                <action selector="logoutTapped:" destination="3gM-BX-P9B" id="JF2-NA-XmJ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="S8K-f0-sxv">
                                 <connections>
-                                    <segue destination="Z0q-cU-yMK" kind="presentation" id="3RC-kG-WKp"/>
+                                    <action selector="AddUserLocationTapped:" destination="3gM-BX-P9B" id="Zgo-AD-c6p"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="SQ7-Fx-Nt3">
@@ -154,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="2980" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Users Data Table View Controller-->
         <scene sceneID="7Lu-Av-tgs">
             <objects>
-                <viewController id="QBf-bo-edP" sceneMemberID="viewController">
+                <viewController id="QBf-bo-edP" customClass="UsersDataTableViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="51S-fg-pvE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +169,66 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-1P-Jdc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UsersDataCell" rowHeight="82" id="Bzw-pP-BTu" customClass="UsersDataTableViewCell" customModule="On_The_Map" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bzw-pP-BTu" id="vvT-Ez-qzD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4lu-31-BTM">
+                                                    <rect key="frame" x="15" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="3Hc-JB-HLm"/>
+                                                        <constraint firstAttribute="height" constant="60" id="oXT-md-6V8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-Xf-ryM">
+                                                    <rect key="frame" x="83" y="22" width="265" height="37.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERL-vj-Tbc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="Tcy-Jy-pMn"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-4X-7zM">
+                                                            <rect key="frame" x="0.0" y="20.5" width="265" height="17"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="hJr-MM-iKr"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4lu-31-BTM" secondAttribute="bottom" constant="11.5" id="DDe-B7-Pz6"/>
+                                                <constraint firstItem="4lu-31-BTM" firstAttribute="top" secondItem="vvT-Ez-qzD" secondAttribute="top" constant="10" id="EXf-8q-wcX"/>
+                                                <constraint firstItem="4lu-31-BTM" firstAttribute="leading" secondItem="vvT-Ez-qzD" secondAttribute="leading" constant="15" id="PlN-qX-hdO"/>
+                                                <constraint firstItem="eaV-Xf-ryM" firstAttribute="top" secondItem="vvT-Ez-qzD" secondAttribute="top" constant="22" id="ZDI-rI-Tjh"/>
+                                                <constraint firstItem="eaV-Xf-ryM" firstAttribute="leading" secondItem="4lu-31-BTM" secondAttribute="trailing" constant="8" id="kpp-X0-upi"/>
+                                                <constraint firstAttribute="trailing" secondItem="eaV-Xf-ryM" secondAttribute="trailing" constant="27" id="nhP-yL-sFu"/>
+                                                <constraint firstAttribute="bottom" secondItem="eaV-Xf-ryM" secondAttribute="bottom" constant="22" id="ukC-TG-7E6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fullNameLabel" destination="ERL-vj-Tbc" id="Df6-Jb-gdk"/>
+                                            <outlet property="icon" destination="4lu-31-BTM" id="5Zf-QO-WIf"/>
+                                            <outlet property="urlLabel" destination="aeJ-4X-7zM" id="tq2-ZO-agC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QBf-bo-edP" id="gDC-sZ-aW0"/>
+                                    <outlet property="delegate" destination="QBf-bo-edP" id="2Jv-r9-WQ1"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -177,20 +241,31 @@
                         <viewLayoutGuide key="safeArea" id="kCn-UX-NCZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Hx-qf-vEF">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="PCE-fJ-E5N"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="PCE-fJ-E5N">
+                            <connections>
+                                <action selector="logoutTapped:" destination="QBf-bo-edP" id="FWc-WR-vQf"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="5B2-ND-29t">
                                 <connections>
                                     <segue destination="Z0q-cU-yMK" kind="presentation" id="Wa3-L1-TSr"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="qcX-J2-CAa"/>
+                            <barButtonItem systemItem="refresh" id="qcX-J2-CAa">
+                                <connections>
+                                    <action selector="refreshTapped:" destination="QBf-bo-edP" id="3SB-uJ-UbA"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="usersDataTableview" destination="nFo-1P-Jdc" id="3wE-QN-q4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsl-VL-k8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="887"/>
+            <point key="canvasLocation" x="2980" y="886.50674662668678"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="AY3-xw-5YG">
@@ -302,7 +377,4 @@
     <resources>
         <image name="Udacity" width="1059" height="1219"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="3RC-kG-WKp"/>
-    </inferredMetricsTieBreakers>
 </document>

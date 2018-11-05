@@ -17,15 +17,16 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-      
+    override func viewWillDisappear(_ animated: Bool) {
+        emailTextfield.text = ""
+        passwordTetfield.text = ""
 
     }
     
-    @IBAction func loginTapped(_ sender: Any) {
+    @IBAction func loginTapped(_ sender: UIButton) {
         
+        ActivityIndicator.startActivityIndicator(view: self.loginButton)
+
         guard let username = emailTextfield.text else {return}
         guard let password = passwordTetfield.text else {return}
 
@@ -37,9 +38,11 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 if success {
                     self.loginButton.isEnabled = true
+                    ActivityIndicator.stopActivityIndicator()
                      self.completeLogin()
                 }else {
                     self.loginButton.isEnabled = true
+                    ActivityIndicator.stopActivityIndicator()
                     Alert.showBasicAlert(on: self, with: errorString!)
                 }
             }

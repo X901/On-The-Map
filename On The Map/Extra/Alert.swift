@@ -11,6 +11,7 @@ struct Alert {
         DispatchQueue.main.async { vc.present(alert, animated: true) }
     }
     
+ 
     
 
 }

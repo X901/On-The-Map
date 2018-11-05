@@ -74,7 +74,34 @@ extension OTMUdacityClient {
         
     }
     
-    
+     func deleteSession(_ completionHandlerForSession: @escaping (_ success: Bool , _ sessionID: String?, _ errorString: String?) -> Void) {
+        
+        /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
+        
+        
+        /* 2. Make the request */
+        
+        
+            
+       _ = taskForDeleteMethod(Methods.AuthenticationSession, decode: SessionDelete.self, completionHandlerForDelete: { (result, error) in
+            
+            if let error = error {
+                completionHandlerForSession(false ,nil,"\(error.localizedDescription) ")
+            }else {
+                let newResult = result as! SessionDelete
+                if let sessionID = newResult.session.id  {
+                    completionHandlerForSession(true ,sessionID ,nil)
+                    
+                }else {
+                    completionHandlerForSession(false ,nil ," \(error!.localizedDescription)")
+                    
+                }
+                
+                
+            }
+        }
+    )
+    }
     
     private func getPublicDataForUserID(userID: String?,_ completionHandlerForUserID: @escaping (_ success: Bool,_ fristName: String?, _ lastName: String?, _ errorString: String?) -> Void) {
         

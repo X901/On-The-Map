@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD516E8A218F5178002350D0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E89218F5178002350D0 /* ActivityIndicator.swift */; };
+		FD516E8C218F5EFE002350D0 /* UsersDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */; };
+		FD516E8E218F60D5002350D0 /* UsersDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD516E8D218F60D5002350D0 /* UsersDataTableViewCell.swift */; };
 		FD68FAF5218B9CE6005C1BC4 /* UserUdacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68FAF4218B9CE6005C1BC4 /* UserUdacity.swift */; };
 		FD87DDC9218A329A004A304C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDC8218A329A004A304C /* AppDelegate.swift */; };
 		FD87DDCB218A329A004A304C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87DDCA218A329A004A304C /* LoginViewController.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD516E89218F5178002350D0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataTableViewController.swift; sourceTree = "<group>"; };
+		FD516E8D218F60D5002350D0 /* UsersDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataTableViewCell.swift; sourceTree = "<group>"; };
 		FD68FAF4218B9CE6005C1BC4 /* UserUdacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUdacity.swift; sourceTree = "<group>"; };
 		FD87DDC5218A329A004A304C /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD87DDC8218A329A004A304C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				FD87DDCC218A329A004A304C /* Main.storyboard */,
+				FD516E8D218F60D5002350D0 /* UsersDataTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8B5F51218C82A200390510 /* Alert.swift */,
+				FD516E89218F5178002350D0 /* ActivityIndicator.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			children = (
 				FD87DDCA218A329A004A304C /* LoginViewController.swift */,
 				FD8B5F53218C879600390510 /* MapViewController.swift */,
+				FD516E8B218F5EFE002350D0 /* UsersDataTableViewController.swift */,
 			);
 			name = Controller;
 			path = "New Group";
@@ -223,9 +232,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8B5F54218C879600390510 /* MapViewController.swift in Sources */,
+				FD516E8E218F60D5002350D0 /* UsersDataTableViewCell.swift in Sources */,
 				FD87DDDF218A3C17004A304C /* OTMParseClient.swift in Sources */,
+				FD516E8C218F5EFE002350D0 /* UsersDataTableViewController.swift in Sources */,
 				FD8B5F4F218C41FE00390510 /* OTMUdacityConvenience.swift in Sources */,
 				FD87DDCB218A329A004A304C /* LoginViewController.swift in Sources */,
+				FD516E8A218F5178002350D0 /* ActivityIndicator.swift in Sources */,
 				FD8B5F4B218C41C500390510 /* OTMUdacityClient.swift in Sources */,
 				FD68FAF5218B9CE6005C1BC4 /* UserUdacity.swift in Sources */,
 				FD8B5F4D218C41DC00390510 /* OTMUdacityConstants.swift in Sources */,

@@ -10,8 +10,8 @@ class OTMParseClient : NSObject {
     
     // shared session
     var session = URLSession.shared
-    
-    var usersData : [Any]?
+    var objectId : String? = nil
+
 
 
     
@@ -32,15 +32,13 @@ class OTMParseClient : NSObject {
         
        var request = NSMutableURLRequest(url: tmdbURLFromParameters(parametersWithApiKey, withPathExtension: method))
 
-        let url = URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?order=-updatedAt&limit=100")
-        var request2 = URLRequest(url: url!)
         
 
-        request2.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request2.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-
+        request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(OTMParseClient.Constants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        
         /* 4. Make the request */
-        let task = session.dataTask(with: request2 as URLRequest) { (data, response, error) in
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             func sendError(_ error: String) {
                 print(error)
@@ -79,6 +77,7 @@ class OTMParseClient : NSObject {
         
         }
     
+    
     // MARK: POST
     
     func taskForPOSTMethod<E: Encodable,D:Decodable>(_ method: String, parameters: [String:AnyObject],decode:D.Type?, jsonBody: E, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
@@ -100,8 +99,9 @@ class OTMParseClient : NSObject {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        
+        request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(OTMParseClient.Constants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
 
 
         do{
@@ -195,9 +195,24 @@ class OTMParseClient : NSObject {
 
         }
         
-        return components.url!
+        //for known reason the sign ":" won't convert to escaping value "%3A"
+        //that mean instead of uniqueKey%22%3A it will print it uniqueKey%22:
+        //so this is working around to fix this issue !
+        
+        let url:URL?
+        let urlString = components.url!.absoluteString
+        if urlString.contains("%22:"){
+            
+            url = URL(string: "\(urlString.replacingOccurrences(of: "%22:", with: "%22%3A"))")
+        }else {
+            url = components.url!
+        }
+       
+        
+
+        return url!
     }
-    
+
   
 
     

@@ -22,9 +22,23 @@ struct Results : Decodable {
     let mediaURL:String?
     let uniqueKey:String?
     let updatedAt:String?
-
+    let objectId:String?
 
 }
 
+
+struct StudentLocationsBody : Decodable {
+    let results : [ResultsBody]?
+}
+
+struct ResultsBody : Decodable {
+    let uniqueKey:String?
+    let firstName:String?
+    let lastName:String?
+    let mapString:String?
+    let mediaURL:String?
+    let latitude:Double?
+    let longitude:Double?
+}
 
 

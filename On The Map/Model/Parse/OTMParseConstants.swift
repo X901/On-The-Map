@@ -20,6 +20,8 @@ extension OTMParseClient {
     // MARK: URL Keys
     struct URLKeys {
         static let UserID = "id"
+        static let ObjectId = "id"
+
     }
     
     // MARK: Methods
@@ -28,7 +30,6 @@ extension OTMParseClient {
         // MARK: Account
         static let StudentLocation = "/StudentLocation"
         static let StudentLocationUpdate = "/StudentLocation/{id}"
-        
     }
 
     // MARK: Parameter Keys
@@ -36,14 +37,15 @@ extension OTMParseClient {
         static let Order = "order"
         static let Limit = "limit"
         static let Where = "where"
+
     }
     
     // MARK: Parameter Values
     struct ParameterValues {
         static let Order = "-updatedAt"
         static let Limit = "100"
-        //Not sure about this !
-        static let Where = "{“uniqueKey\":\"{id}\"}"
+        static let Where = "{\"uniqueKey\":\"{id}\"}"
+
 
     }
     

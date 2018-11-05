@@ -149,6 +149,66 @@ class OTMUdacityClient : NSObject {
     }
     
     
+    //MARK : Delete
+    func taskForDeleteMethod<D:Decodable>(_ method: String,decode:D.Type?, completionHandlerForDelete: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+        
+        
+        func sendError(_ error: String) {
+            print(error)
+            let userInfo = [NSLocalizedDescriptionKey : error]
+            completionHandlerForDelete(nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
+        }
+        
+        /* 2/3. Build the URL, Configure the request */
+        let request = NSMutableURLRequest(url: OTMUdacityClient.tmdbURLFromWithoutParameters(withPathExtension: method))
+        
+        
+        
+        request.httpMethod = "Delete"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+      
+        
+        
+        
+        /* 4. Make the request */
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError("\(error!.localizedDescription)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your Password or Email uncorrect!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            //Remove 5 checter from Response
+            let range = 5..<data.count
+            let newData = data.subdata(in: range) /* subset response data! */
+            
+            
+            /* 5/6. Parse the data and use the data (happens in completion handler) */
+            self.convertDataWithCompletionHandler(newData, decode: decode!, completionHandlerForConvertData: completionHandlerForDelete)
+            
+        }
+        /* 7. Start the request */
+        task.resume()
+        
+        return task
+    }
     
     // MARK: Helpers
     

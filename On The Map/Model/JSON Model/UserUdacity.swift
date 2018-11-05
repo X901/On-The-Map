@@ -30,6 +30,10 @@ struct Account : Decodable {
     let key : String?
 }
 
+struct SessionDelete : Decodable {
+    let session : Session
+}
+
 struct Session : Decodable {
     let id : String?
     let expiration : String?
@@ -46,4 +50,5 @@ struct User : Decodable {
     let last_name : String?
 
 }
+
 
