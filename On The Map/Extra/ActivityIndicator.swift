@@ -11,16 +11,16 @@ import UIKit
 
 struct ActivityIndicator {
     
-   private static var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-
+    private static var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     static func startActivityIndicator(view:UIView){
- 
+        
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .gray
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-}
+    }
     
     
     static func stopActivityIndicator(){

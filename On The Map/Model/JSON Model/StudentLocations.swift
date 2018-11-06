@@ -23,15 +23,12 @@ struct Results : Decodable {
     let uniqueKey:String?
     let updatedAt:String?
     let objectId:String?
-
+    
 }
+
 
 
 struct StudentLocationsBody : Encodable {
-    let results : [ResultsBody]?
-}
-
-struct ResultsBody : Encodable {
     let uniqueKey:String?
     let firstName:String?
     let lastName:String?
@@ -45,7 +42,11 @@ struct ResultsBody : Encodable {
 struct StudentLocationsResponse : Decodable {
     let createdAt : String?
     let objectId : String?
+    
+}
 
+struct StudentLocationsUpdateResponse : Decodable {
+    let createdAt : String?
 }
 
 

@@ -37,19 +37,19 @@ extension OTMParseClient {
     }
     
     
-    func getuserDataByUniqueKey(_ completionHandlerForUserID: @escaping (_ success: Bool,_ usersData: [Any]?, _ errorString: String?) -> Void) {
+    func getuserDataByUniqueKey(_ completionHandlerForUserID: @escaping (_ success: Bool,_ objectId:String?, _ errorString: String?) -> Void) {
         
         
-       let method: String = Methods.StudentLocation
+        let method: String = Methods.StudentLocation
         
         let newParameterValues = substituteKeyInMethod(OTMParseClient.ParameterValues.Where, key: OTMParseClient.URLKeys.UserID, value: OTMUdacityClient.sharedInstance().userID!)!
-
+        
         
         let parameters =  [OTMParseClient.ParameterKeys.Where:newParameterValues]
-
+        
         
         /* 2. Make the request */
-     
+        
         
         _ = taskForGETMethod(method, parameters: parameters as [String : AnyObject], decode: StudentLocations.self) { (result, error) in
             
@@ -60,26 +60,26 @@ extension OTMParseClient {
             }else {
                 let newResult = result as! StudentLocations
                 
-                if !(newResult.results?.isEmpty)!{
-                if let usersData = newResult.results  {
-                    
-                    // if there is data (user already posted his Location)
-                    // get objectId
-                    if let objectId = usersData[0].objectId    {
-                        OTMParseClient.sharedInstance().objectId = objectId
+                if !((newResult.results?.isEmpty)!){
+                    if let usersData = newResult.results  {
                         
+                        // if there is data (user already posted his Location)
+                        // get objectId
+                        if let objectId = usersData[0].objectId    {
+                            OTMParseClient.sharedInstance().objectId = objectId
+                            
+                            
+                        }
+                        
+                        completionHandlerForUserID(true ,self.objectId,nil)
+                    }else {
+                        completionHandlerForUserID(false ,nil ,"\( error!.localizedDescription)")
                         
                     }
                     
-                    completionHandlerForUserID(true ,usersData,nil)
                 }else {
-                    completionHandlerForUserID(false ,nil ,"\( error!.localizedDescription)")
+                    completionHandlerForUserID(true ,self.objectId ,nil)
                     
-                    }
-                    
-                }else {
-                    completionHandlerForUserID(true ,newResult.results ,nil)
-
                 }
                 
                 
@@ -88,7 +88,7 @@ extension OTMParseClient {
         
     }
     
-     func postUserLocation<E: Encodable>( jsonBody:E ,completionHandlerForSession: @escaping (_ success: Bool , _ errorString: String?) -> Void) {
+    func postUserLocation<E: Encodable>( jsonBody:E ,completionHandlerForSession: @escaping (_ success: Bool , _ errorString: String?) -> Void) {
         
         /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
         
@@ -120,7 +120,10 @@ extension OTMParseClient {
         
         /* 2. Make the request */
         
-        _ = taskForPOSTMethod(Methods.StudentLocation, decode: StudentLocationsResponse.self, jsonBody: jsonBody) { (result, error) in
+        var mutableMethod: String = Methods.StudentLocationUpdate
+        mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.ObjectId, value: String(self.objectId!))!
+        
+        _ = taskForPUTMethod(mutableMethod, decode: StudentLocationsUpdateResponse.self, jsonBody: jsonBody) { (result, error) in
             
             if let error = error {
                 completionHandlerForSession(false ,"\(error.localizedDescription) ")

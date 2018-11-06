@@ -9,7 +9,7 @@
 import UIKit
 
 class UsersDataTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
@@ -21,10 +21,10 @@ class UsersDataTableViewCell: UITableViewCell {
             
             fullNameLabel.text = "\(frist) \(last)"
             urlLabel.text = "\(url)"
-
+            
         }
     }
     
     
-
+    
 }

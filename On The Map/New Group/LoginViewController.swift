@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextfield: UITextField!
     
     @IBOutlet weak var passwordTetfield: UITextField!
@@ -20,33 +20,39 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         emailTextfield.text = ""
         passwordTetfield.text = ""
-
+        
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
         
-        ActivityIndicator.startActivityIndicator(view: self.loginButton)
-
-        guard let username = emailTextfield.text else {return}
-        guard let password = passwordTetfield.text else {return}
-
-        let jsonBody = UdacitySessionBody(udacity: Udacity(username: username, password: password))
-        
-        loginButton.isEnabled = false
-        
-        OTMUdacityClient.sharedInstance().authenticateWithViewController(self, jsonBody: jsonBody) { (success,errorString) in
-            DispatchQueue.main.async {
-                if success {
-                    self.loginButton.isEnabled = true
-                    ActivityIndicator.stopActivityIndicator()
-                     self.completeLogin()
-                }else {
-                    self.loginButton.isEnabled = true
-                    ActivityIndicator.stopActivityIndicator()
-                    Alert.showBasicAlert(on: self, with: errorString!)
-                }
-            }
+        if emailTextfield.text == "" || passwordTetfield.text == ""{
+            Alert.showBasicAlert(on: self, with: "Username and Password cannot be empty !")
             
+        }else {
+            
+            ActivityIndicator.startActivityIndicator(view: self.loginButton)
+            
+            guard let username = emailTextfield.text else {return}
+            guard let password = passwordTetfield.text else {return}
+            
+            let jsonBody = UdacitySessionBody(udacity: Udacity(username: username, password: password))
+            
+            loginButton.isEnabled = false
+            
+            OTMUdacityClient.sharedInstance().authenticateWithViewController(self, jsonBody: jsonBody) { (success,errorString) in
+                DispatchQueue.main.async {
+                    if success {
+                        self.loginButton.isEnabled = true
+                        ActivityIndicator.stopActivityIndicator()
+                        self.completeLogin()
+                    }else {
+                        self.loginButton.isEnabled = true
+                        ActivityIndicator.stopActivityIndicator()
+                        Alert.showBasicAlert(on: self, with: errorString!)
+                    }
+                }
+                
+            }
         }
     }
     

@@ -2,7 +2,7 @@
 // MARK: - OTMParseClient (Constants)
 
 extension OTMParseClient {
-
+    
     // MARK: Constants
     struct Constants {
         
@@ -14,14 +14,15 @@ extension OTMParseClient {
         static let ApiScheme = "https"
         static let ApiHost = "parse.udacity.com"
         static let ApiPath = "/parse/classes"
-
+        
     }
+    
     
     // MARK: URL Keys
     struct URLKeys {
         static let UserID = "id"
         static let ObjectId = "id"
-
+        
     }
     
     // MARK: Methods
@@ -31,13 +32,13 @@ extension OTMParseClient {
         static let StudentLocation = "/StudentLocation"
         static let StudentLocationUpdate = "/StudentLocation/{id}"
     }
-
+    
     // MARK: Parameter Keys
     struct ParameterKeys {
         static let Order = "order"
         static let Limit = "limit"
         static let Where = "where"
-
+        
     }
     
     // MARK: Parameter Values
@@ -45,9 +46,9 @@ extension OTMParseClient {
         static let Order = "-updatedAt"
         static let Limit = "100"
         static let Where = "{\"uniqueKey\":\"{id}\"}"
-
-
+        
+        
     }
     
- 
+    
 }

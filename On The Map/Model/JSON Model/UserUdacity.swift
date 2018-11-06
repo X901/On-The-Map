@@ -48,7 +48,7 @@ struct UdacityUserData : Decodable {
 struct User : Decodable {
     let first_name : String?
     let last_name : String?
-
+    
 }
 
 

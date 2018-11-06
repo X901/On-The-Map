@@ -11,28 +11,28 @@ class OTMParseClient : NSObject {
     // shared session
     var session = URLSession.shared
     var objectId : String? = nil
-
-
+    
+    
     
     // MARK: Initializers
     
     override init() {
         super.init()
     }
-
+    
     // MARK: GET
     
     func taskForGETMethod<D: Decodable>(_ method: String, parameters: [String:AnyObject],decode:D.Type, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         /* 1. Set the parameters */
-      var parametersWithApiKey = parameters
+        var parametersWithApiKey = parameters
         /* 2/3. Build the URL, Configure the request */
         
         
-       var request = NSMutableURLRequest(url: tmdbURLFromParameters(parametersWithApiKey, withPathExtension: method))
-
+        var request = NSMutableURLRequest(url: tmdbURLFromParameters(parametersWithApiKey, withPathExtension: method))
         
-
+        
+        
         request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(OTMParseClient.Constants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         
@@ -62,19 +62,19 @@ class OTMParseClient : NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
-
+            
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, decode:decode,completionHandlerForConvertData: completionHandlerForGET)
-     
+            
         }
         /* 7. Start the request */
         task.resume()
         
         return task
-
         
-        }
+        
+    }
     
     
     // MARK: POST
@@ -88,23 +88,23 @@ class OTMParseClient : NSObject {
             completionHandlerForPOST(nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
         }
         
-
+        
         /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(url:tmdbURLFromWithoutParameters(withPathExtension: method))
         
-
+        
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(OTMParseClient.Constants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
-
-
+        
+        
         do{
             let JsonBody = try JSONEncoder().encode(jsonBody)
             request.httpBody = JsonBody
-         
+            
             
         } catch{
             sendError("There was an error with your request JSON Body: \(error)")
@@ -115,8 +115,8 @@ class OTMParseClient : NSObject {
         
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-
-          
+            
+            
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
@@ -136,7 +136,7 @@ class OTMParseClient : NSObject {
                 return
             }
             
-          
+            
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, decode: decode!, completionHandlerForConvertData: completionHandlerForPOST)
@@ -144,11 +144,83 @@ class OTMParseClient : NSObject {
         }
         /* 7. Start the request */
         task.resume()
-
+        
         return task
     }
     
- 
+    //Mark Put
+    
+    func taskForPUTMethod<E: Encodable,D:Decodable>(_ method: String,decode:D.Type?, jsonBody: E, completionHandlerForPUT: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+        
+        
+        func sendError(_ error: String) {
+            print(error)
+            let userInfo = [NSLocalizedDescriptionKey : error]
+            completionHandlerForPUT(nil, NSError(domain: "taskForPUTMethod", code: 1, userInfo: userInfo))
+        }
+        
+        
+        /* 2/3. Build the URL, Configure the request */
+        let request = NSMutableURLRequest(url:tmdbURLFromWithoutParameters(withPathExtension: method))
+        
+        
+        
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.addValue(OTMParseClient.Constants.ApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(OTMParseClient.Constants.ApiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        
+        
+        do{
+            let JsonBody = try JSONEncoder().encode(jsonBody)
+            request.httpBody = JsonBody
+            
+            
+        } catch{
+            sendError("There was an error with your request JSON Body: \(error)")
+            
+        }
+        
+        
+        
+        /* 4. Make the request */
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError("\(error!.localizedDescription)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            
+            
+            /* 5/6. Parse the data and use the data (happens in completion handler) */
+            self.convertDataWithCompletionHandler(data, decode: decode!, completionHandlerForConvertData: completionHandlerForPUT)
+            
+        }
+        /* 7. Start the request */
+        task.resume()
+        
+        return task
+    }
+    
+    
+    
     
     // MARK: Helpers
     
@@ -164,7 +236,7 @@ class OTMParseClient : NSObject {
     
     private func convertDataWithCompletionHandler<D: Decodable>(_ data: Data,decode:D.Type, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
-
+        
         do {
             let obj = try JSONDecoder().decode(decode, from: data)
             completionHandlerForConvertData(obj as AnyObject, nil)
@@ -175,7 +247,7 @@ class OTMParseClient : NSObject {
         }
         
     }
-
+    
     // create a URL from parameters
     private func tmdbURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
@@ -183,13 +255,13 @@ class OTMParseClient : NSObject {
         components.scheme = OTMParseClient.Constants.ApiScheme
         components.host = OTMParseClient.Constants.ApiHost
         components.path = OTMParseClient.Constants.ApiPath + (withPathExtension ?? "")
-
+        
         components.queryItems = [URLQueryItem]()
-
+        
         for (key, value) in parameters {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem)
-
+            
         }
         
         //for known reason the sign ":" won't convert to escaping value "%3A"
@@ -204,12 +276,12 @@ class OTMParseClient : NSObject {
         }else {
             url = components.url!
         }
-       
         
-
+        
+        
         return url!
     }
-
+    
     // create a URL from without parameters
     private func tmdbURLFromWithoutParameters(withPathExtension: String? = nil) -> URL {
         
@@ -218,11 +290,11 @@ class OTMParseClient : NSObject {
         components.host = OTMParseClient.Constants.ApiHost
         components.path = OTMParseClient.Constants.ApiPath + (withPathExtension ?? "")
         
-        
+        print(components.url!)
         
         return components.url!
     }
-
+    
     
     // MARK: Shared Instance
     

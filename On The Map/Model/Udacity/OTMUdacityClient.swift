@@ -63,7 +63,7 @@ class OTMUdacityClient : NSObject {
             
             let range = 5..<data.count
             let newData = data.subdata(in: range) /* subset response data! */
-
+            
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(newData, decode:decode,completionHandlerForConvertData: completionHandlerForGET)
@@ -90,7 +90,7 @@ class OTMUdacityClient : NSObject {
         
         /* 2/3. Build the URL, Configure the request */
         let request = NSMutableURLRequest(url: OTMUdacityClient.tmdbURLFromWithoutParameters(withPathExtension: method))
-
+        
         
         
         request.httpMethod = "POST"
@@ -167,7 +167,7 @@ class OTMUdacityClient : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-      
+        
         
         
         
@@ -236,7 +236,7 @@ class OTMUdacityClient : NSObject {
     }
     
     
-   
+    
     
     // create a URL from without parameters
     class func tmdbURLFromWithoutParameters( withPathExtension: String? = nil) -> URL {
@@ -245,7 +245,7 @@ class OTMUdacityClient : NSObject {
         components.scheme = OTMUdacityClient.Constants.ApiScheme
         components.host = OTMUdacityClient.Constants.ApiHost
         components.path = OTMUdacityClient.Constants.ApiPath + (withPathExtension ?? "")
-      
+        
         
         
         return components.url!

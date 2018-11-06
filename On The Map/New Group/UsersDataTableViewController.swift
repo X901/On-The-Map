@@ -10,18 +10,18 @@ import UIKit
 import SafariServices
 
 class UsersDataTableViewController: UIViewController {
-
+    
     @IBOutlet weak var usersDataTableview: UITableView!
     
     var usersDataArray = [Any?]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         getAllUsersData()
     }
     
-
-
+    
     func getAllUsersData(){
         
         ActivityIndicator.startActivityIndicator(view: self.view)
@@ -36,7 +36,7 @@ class UsersDataTableViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     ActivityIndicator.stopActivityIndicator()
-
+                    
                     self.usersDataTableview.reloadData()
                 }
                 
@@ -45,18 +45,48 @@ class UsersDataTableViewController: UIViewController {
                     ActivityIndicator.stopActivityIndicator()
                 }
                 Alert.showBasicAlert(on: self, with: errorString!)
-
+                
                 
             }
             
-            }
         }
+    }
     
     @IBAction func addLocationTapped(_ sender: Any) {
+        OTMParseClient.sharedInstance().getuserDataByUniqueKey { (success, usersData, errorString) in
+            
+            if success {
+                
+                // if the usersData is not equal nil : that mean the user did already post Location to parse ( get objectId and Ask if he want to update !)
+                // but if the usersData is equal nil : that mean the user never post his Location ! (let him post !)
+                if usersData != nil {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toAddLocation", sender: nil)
+                        
+                    }
+                }else {
+                    //ask user if his want to overwriting!
+                    //                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMParseClient.sharedInstance().userFullName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?")
+                    
+                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().fristAndLastName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
+                        
+                        self.performSegue(withIdentifier: "toAddLocation", sender: nil)
+                        
+                    })
+                    
+                }
+                
+                
+            }else {
+                Alert.showBasicAlert(on: self, with: errorString!)
+            }
+        }
+        
+        
         
     }
     
-
+    
     @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
         getAllUsersData()
     }
@@ -91,7 +121,7 @@ extension UsersDataTableViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersDataCell") as! UsersDataTableViewCell
-
+        
         
         cell.fillCell(usersData: usersDataArray[indexPath.row] as! Results)
         
@@ -105,13 +135,20 @@ extension UsersDataTableViewController:UITableViewDataSource {
 extension UsersDataTableViewController:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let dataArray = usersDataArray as! [Results]
+        let dataArray = usersDataArray as! [Results]
         
         if let urlString = dataArray[indexPath.row].mediaURL,
-          let url = URL(string: urlString){
-        let svc = SFSafariViewController(url: url)
-        present(svc, animated: true, completion: nil)
-
-    }
+            let url = URL(string: urlString){
+            
+            if url.absoluteString.contains("http://"){
+                let svc = SFSafariViewController(url: url)
+                present(svc, animated: true, completion: nil)
+            }else {
+                
+                DispatchQueue.main.async {
+                    Alert.showBasicAlert(on: self, with: "Cannot Open , Because it's Not Vailed Website !!")
+                }            }
+            
+        }
     }
 }
