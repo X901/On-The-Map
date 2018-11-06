@@ -20,9 +20,13 @@ class FinalAddLocationViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+        
         createAnnotation()
         
     }
+    
+    
     
     @IBAction func finishTapped(_ sender: UIButton) {
         // if objectId == nil , it's mean this is the frist time the user post !

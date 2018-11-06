@@ -19,6 +19,16 @@ class AddLocationViewController: UIViewController {
     var latitude : Double?
     var longitude : Double?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func returnBackToRoot() {
         DispatchQueue.main.async {
             if let navigationController = self.navigationController {
@@ -27,6 +37,7 @@ class AddLocationViewController: UIViewController {
         }
         
     }
+    
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         returnBackToRoot()
