@@ -36,10 +36,10 @@ class AddLocationViewController: UIViewController {
     
     @IBAction func FindLocation(_ sender: UIButton) {
         
-        guard let websiteLink = yourLocationTextfield.text else {return}
+        guard let websiteLink = yourWebsiteTextfield.text else {return}
         
-        if !websiteLink.contains("http://"){
-            Alert.showBasicAlert(on: self, with: "The Website Should Contains \"http://\" ")
+        if websiteLink.range(of:"http://") == nil{
+            Alert.showBasicAlert(on: self, with: "The Website Should Contains http://")
         }else {
             if yourLocationTextfield.text != "" && yourWebsiteTextfield.text != "" {
                 
