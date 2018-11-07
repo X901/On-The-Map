@@ -104,6 +104,7 @@ class FinalAddLocationViewController: UIViewController {
     
     func returnBackToRoot() {
         DispatchQueue.main.async {
+            self.tabBarController?.tabBar.isHidden = false
             if let navigationController = self.navigationController {
                 navigationController.popToRootViewController(animated: true)
             }

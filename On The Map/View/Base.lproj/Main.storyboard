@@ -37,6 +37,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="OkK-HU-Irx"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-dp-5WM">
                                         <rect key="frame" x="0.0" y="174" width="288" height="30"/>
@@ -47,6 +50,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="BZy-rB-sHZ"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msz-Tj-Slj">
                                         <rect key="frame" x="0.0" y="212" width="288" height="40"/>
@@ -98,9 +104,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextfield" destination="D7v-gb-t6O" id="5D9-Wr-RQg"/>
+                        <outlet property="emailTextfield" destination="D7v-gb-t6O" id="3As-bQ-SAE"/>
                         <outlet property="loginButton" destination="msz-Tj-Slj" id="JxN-vF-1IQ"/>
-                        <outlet property="passwordTetfield" destination="dBO-dp-5WM" id="Ojl-bK-7C1"/>
+                        <outlet property="passwordTetfield" destination="dBO-dp-5WM" id="Dl2-PR-ank"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -296,6 +302,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="location"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="f2B-Ul-1Eh" id="74y-gI-Bsm"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDc-zd-Gci">
                                         <rect key="frame" x="0.5" y="174" width="288" height="30"/>
@@ -306,6 +315,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="url"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="f2B-Ul-1Eh" id="vm8-6V-5FE"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sG0-0q-Dob">
                                         <rect key="frame" x="0.5" y="212" width="288" height="40"/>
@@ -318,8 +330,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="FindLocation:" destination="f2B-Ul-1Eh" eventType="touchUpInside" id="A7u-YL-rGY"/>
-                                            <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGu-4y-rc6"/>
+                                            <action selector="findLocation:" destination="f2B-Ul-1Eh" eventType="touchUpInside" id="7fe-SB-bXW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -375,9 +386,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="FindLocation:" destination="f2B-Ul-1Eh" eventType="touchUpInside" id="s1h-8m-tl6"/>
-                                    <action selector="finishTapped:" destination="5iT-LK-Iyr" eventType="touchUpInside" id="K1R-QW-GMT"/>
-                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Rz-ka-B10"/>
+                                    <action selector="finishTapped:" destination="5iT-LK-Iyr" eventType="touchUpInside" id="rCy-7z-LG5"/>
                                 </connections>
                             </button>
                         </subviews>

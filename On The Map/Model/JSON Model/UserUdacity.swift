@@ -9,43 +9,43 @@
 import Foundation
 
 //Mark: Udacity session JSON Body
-struct UdacitySessionBody : Encodable {
+struct UdacitySessionBody : Codable {
     let udacity : Udacity
 }
 
-struct Udacity : Encodable {
+struct Udacity : Codable {
     let username:String
     let password:String
 }
 
 //Mark: Udacity session JSON Response
-struct UdacitySessionResponse : Decodable {
+struct UdacitySessionResponse : Codable {
     let account : Account
     let session : Session
     
 }
 
-struct Account : Decodable {
+struct Account : Codable {
     let registered : Bool?
     let key : String?
 }
 
-struct SessionDelete : Decodable {
+struct SessionDelete : Codable {
     let session : Session
 }
 
-struct Session : Decodable {
+struct Session : Codable {
     let id : String?
     let expiration : String?
 }
 
 //Mark: User Data (Frist and Last Name)
 
-struct UdacityUserData : Decodable {
+struct UdacityUserData : Codable {
     let user : User
 }
 
-struct User : Decodable {
+struct User : Codable {
     let first_name : String?
     let last_name : String?
     

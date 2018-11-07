@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct StudentLocations : Decodable {
+struct StudentLocations : Codable {
     let results : [Results]?
 }
 
-struct Results : Decodable {
+struct Results : Codable {
     let createdAt:String?
     let firstName:String?
     let lastName:String?
@@ -28,7 +28,7 @@ struct Results : Decodable {
 
 
 
-struct StudentLocationsBody : Encodable {
+struct StudentLocationsBody : Codable {
     let uniqueKey:String?
     let firstName:String?
     let lastName:String?
@@ -39,13 +39,13 @@ struct StudentLocationsBody : Encodable {
 }
 
 //Post StudentLocations Response
-struct StudentLocationsResponse : Decodable {
+struct StudentLocationsResponse : Codable {
     let createdAt : String?
     let objectId : String?
     
 }
 
-struct StudentLocationsUpdateResponse : Decodable {
+struct StudentLocationsUpdateResponse : Codable {
     let createdAt : String?
 }
 

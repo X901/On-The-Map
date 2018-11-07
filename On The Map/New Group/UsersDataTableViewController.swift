@@ -13,7 +13,7 @@ class UsersDataTableViewController: UIViewController {
     
     @IBOutlet weak var usersDataTableview: UITableView!
     
-    var usersDataArray = [Any?]()
+    var usersDataArray = ModelDataArray.shared.usersDataArray
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,10 +23,12 @@ class UsersDataTableViewController: UIViewController {
     
     
     func getAllUsersData(){
-        
+        usersDataArray.removeAll()
+
         ActivityIndicator.startActivityIndicator(view: self.view)
-        
+      
         OTMParseClient.sharedInstance().getAllDataFormUsers { (success, usersData, errorString) in
+            
             
             if success {
                 
@@ -50,6 +52,7 @@ class UsersDataTableViewController: UIViewController {
             }
             
         }
+        
     }
     
     @IBAction func addLocationTapped(_ sender: Any) {

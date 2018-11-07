@@ -16,31 +16,45 @@ class MapViewController: UIViewController {
     
     private var annotations = [MKPointAnnotation]()
     
-    private var activityIndicator : UIActivityIndicatorView  = UIActivityIndicatorView()
-    
+    var usersDataArray = ModelDataArray.shared.usersDataArray
+
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         getAllUsersData()
     }
     
     
     func getAllUsersData(){
+        
+        self.usersDataArray.removeAll()
+        annotations.removeAll()
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+
         ActivityIndicator.startActivityIndicator(view: self.view)
         
         OTMParseClient.sharedInstance().getAllDataFormUsers { (success, usersData, errorString) in
             
             if success {
                 
+                self.usersDataArray = usersData as! [Results]
+       
+                self.organizingUsersData(userDataArray: self.usersDataArray as! [Results])
                 
-                let  newUsersData = usersData as! [Results]
-                
-                
-                self.organizingUsersData(userDataArray: newUsersData)
-                
-                
+                self.stopActivityIdecator()
             }else {
+                self.stopActivityIdecator()
                 Alert.showBasicAlert(on: self, with: errorString!)
             }
+        }
+    
+    }
+    
+    
+    
+    func stopActivityIdecator(){
+        DispatchQueue.main.async {
+            ActivityIndicator.stopActivityIndicator()
         }
     }
     
