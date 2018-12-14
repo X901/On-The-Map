@@ -21,13 +21,15 @@ extension OTMUdacityClient {
                 // success! we have the sessionID!
                 self.sessionID = sessionID
                 self.userID = userID
+
                 
-                self.getPublicDataForUserID(userID: userID) { (success, fristName,lastName, errorString) in
+                self.getPublicDataForUserID(userID: userID) { (success, nickname, errorString) in
                     
                     if success {
-                        
-                        if let fristName = fristName , let lastName = lastName {
-                            self.fristAndLastName = "\(fristName) \(lastName)"
+                        print("nickname is: \(nickname)")
+
+                        if let nickname = nickname {
+                            self.nickname = "\(nickname)"
                         }
                         
                         
@@ -104,7 +106,7 @@ extension OTMUdacityClient {
         )
     }
     
-    private func getPublicDataForUserID(userID: String?,_ completionHandlerForUserID: @escaping (_ success: Bool,_ fristName: String?, _ lastName: String?, _ errorString: String?) -> Void) {
+    private func getPublicDataForUserID(userID: String?,_ completionHandlerForUserID: @escaping (_ success: Bool,_ nickname: String?, _ errorString: String?) -> Void) {
         
         
         
@@ -122,15 +124,15 @@ extension OTMUdacityClient {
             
             if let error = error {
                 
-                completionHandlerForUserID(false ,nil ,nil,"\(error.localizedDescription)")
+                completionHandlerForUserID(false ,nil ,"\(error.localizedDescription)")
             }else {
                 let newResult = result as! UdacityUserData
-                if let fristName = newResult.user.first_name , let lastName = newResult.user.last_name  {
+                if let nickname = newResult.nickname  {
                     
-                    completionHandlerForUserID(true ,fristName, lastName,nil)
+                    completionHandlerForUserID(true ,nickname,nil)
                     
                 }else {
-                    completionHandlerForUserID(false ,nil ,nil,"\(String(describing: error?.localizedDescription))")
+                    completionHandlerForUserID(false ,nil,"\(String(describing: error?.localizedDescription))")
                     
                 }
                 

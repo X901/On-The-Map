@@ -71,7 +71,7 @@ class UsersDataTableViewController: UIViewController {
                     //ask user if his want to overwriting!
                     //                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMParseClient.sharedInstance().userFullName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?")
                     
-                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().fristAndLastName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
+                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().nickname!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
                         
                         self.performSegue(withIdentifier: "toAddLocation", sender: nil)
                         

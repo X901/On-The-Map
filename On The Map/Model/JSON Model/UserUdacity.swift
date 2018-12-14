@@ -42,13 +42,11 @@ struct Session : Codable {
 //Mark: User Data (Frist and Last Name)
 
 struct UdacityUserData : Codable {
-    let user : User
+    let nickname : String?
+
 }
 
-struct User : Codable {
-    let first_name : String?
-    let last_name : String?
-    
-}
+
+
 
 

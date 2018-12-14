@@ -41,8 +41,8 @@ class FinalAddLocationViewController: UIViewController {
     
     func postNewStudentLocation(){
         
-        if let fullName = OTMUdacityClient.sharedInstance().fristAndLastName {
-            var components = fullName.components(separatedBy: " ")
+        if let nickname = OTMUdacityClient.sharedInstance().nickname {
+            var components = nickname.components(separatedBy: " ")
             if(components.count > 0)
             {
                 let firstName = components.removeFirst()
@@ -73,7 +73,7 @@ class FinalAddLocationViewController: UIViewController {
     
     func updateStudentLocation(){
         
-        if let fullName = OTMUdacityClient.sharedInstance().fristAndLastName {
+        if let fullName = OTMUdacityClient.sharedInstance().nickname {
             var components = fullName.components(separatedBy: " ")
             if(components.count > 0)
             {

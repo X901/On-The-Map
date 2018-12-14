@@ -15,7 +15,7 @@ class OTMUdacityClient : NSObject {
     // authentication state
     var sessionID : String? = nil
     var userID : String? = nil
-    var fristAndLastName : String? = nil
+    var nickname : String? = nil
     
     
     // MARK: Initializers
@@ -36,6 +36,7 @@ class OTMUdacityClient : NSObject {
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
+
             func sendError(_ error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
@@ -64,7 +65,7 @@ class OTMUdacityClient : NSObject {
             let range = 5..<data.count
             let newData = data.subdata(in: range) /* subset response data! */
             
-            
+
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(newData, decode:decode,completionHandlerForConvertData: completionHandlerForGET)
             
@@ -247,7 +248,7 @@ class OTMUdacityClient : NSObject {
         components.path = OTMUdacityClient.Constants.ApiPath + (withPathExtension ?? "")
         
         
-        
+        print("Udacity API: \(components.url!)")
         return components.url!
     }
     

@@ -135,7 +135,7 @@ class MapViewController: UIViewController {
                     //ask user if his want to overwriting!
                     //                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMParseClient.sharedInstance().userFullName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?")
                     
-                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().fristAndLastName!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
+                    Alert.showAlertWithTwoButtons(on: self, with: "User \(OTMUdacityClient.sharedInstance().nickname!) Has Already Posted a Stdent Location. Whould you Like to Overwrite Thier Location?", completionHandlerForAlert: { (action) in
                         
                         self.performSegue(withIdentifier: "toAddLocation", sender: nil)
                         
@@ -202,7 +202,7 @@ extension MapViewController:MKMapViewDelegate{
     // to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            
+
             if let toOpen = view.annotation?.subtitle! {
                 guard let url = URL(string: toOpen) else {return}
                 openUrlInSafari(url:url)
